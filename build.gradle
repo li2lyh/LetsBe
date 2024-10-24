@@ -23,16 +23,42 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
+dependenciesdependencies {
+    // Thymeleaf 템플릿 엔진
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // Spring MVC 웹 애플리케이션
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // 비동기 웹 애플리케이션 (WebFlux)
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    annotationProcessor 'org.projectlombok:lombok'
+
+    // Spring Boot 테스트 지원
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // 서버 재시작 없이 반영
+    implementation 'org.springframework.boot:spring-boot-devtools'
+
+    // Lombok (코드 생성을 위한 라이브러리)
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    // 리액티브 프로그래밍 테스트
     testImplementation 'io.projectreactor:reactor-test'
+
+    // JUnit 플랫폼 런처
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // SQL 쿼리 로깅 (Log4jdbc)
+    implementation 'com.integralblue:log4jdbc-spring-boot-starter:2.0.0'
+    implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+
+    // MariaDB JDBC 드라이버
+    implementation 'org.mariadb.jdbc:mariadb-java-client'
+
+    // MyBatis (SQL 매핑 프레임워크)
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+
 }
 
 tasks.named('test') {
@@ -56,9 +82,10 @@ task installReact(type: Exec) {
     group = BasePlugin.BUILD_GROUP
     if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
         commandLine "npm.cmd", "audit", "fix"
-        commandLine 'npm.cmd', 'install' }
-    else {
-        commandLine "npm", "audit", "fix" commandLine 'npm', 'install'
+        commandLine 'npm.cmd', 'install'
+    } else {
+        commandLine "npm", "audit", "fix"
+        commandLine 'npm', 'install'
     }
 }
 
