@@ -1,20 +1,13 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import MainView from "./MainView";
 
 function App() {
-  const [hello, setHello] = useState('');
-
-  useEffect(() => {
-    axios.get('/api/test')
-        .then((res) => {
-          setHello(res.data);
-        })
-  }, []);
-  return (
-      <div className="App">
-        백엔드 데이터 : {hello}
-      </div>
-  );
+    return (
+        <div className="App">
+            <MainView />
+        </div>
+    );
 }
 
 export default App;

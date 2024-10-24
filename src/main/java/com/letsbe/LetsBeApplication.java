@@ -1,4 +1,4 @@
-package com.letsbe.letsbe;
+package com.letsbe;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
