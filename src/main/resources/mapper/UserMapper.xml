@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.letsbe.mapper.UserMapper">
+    <select id="getUserList" resultType="com.letsbe.vo.UserVo">
+        SELECT u.user_id, user_name, nickname, password, email, phone, created_at, updated_at,
+                profile_id, bio, profile_picture, today_count, likes_count, theme_color, title
+        FROM Users u join profiles p on p.user_id = u.user_id
+        WHERE u.user_id = 1
+    </select>
+</mapper>
